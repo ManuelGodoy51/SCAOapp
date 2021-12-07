@@ -14,6 +14,9 @@
         android:theme="@style/Theme.Scaocl"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".AgregarProductos"
+            android:exported="false" />
+        <activity
             android:name=".inicio"
             android:exported="false" />
         <activity
