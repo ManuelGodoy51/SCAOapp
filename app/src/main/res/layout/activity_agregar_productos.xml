@@ -90,6 +90,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="189dp"
                     android:layout_height="wrap_content"
@@ -100,139 +101,160 @@
 
                 <RadioGroup
                     android:orientation="horizontal">
+
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Bueno"></RadioButton>
+
                     <RadioButton
                         android:layout_width="73dp"
                         android:layout_height="wrap_content"
                         android:text="Malo"></RadioButton>
+
                 </RadioGroup>
             </TableRow>
+
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="189dp"
                     android:layout_height="wrap_content"
                     android:text="Color adecuado"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
-                    android:textSize="15sp">
-                </TextView>
+                    android:textSize="15sp"></TextView>
+
                 <RadioGroup
                     android:orientation="horizontal">
+
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SI">
-                </RadioButton>
+                    android:text="SI"></RadioButton>
+
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="NO">
-                </RadioButton>
+                    android:text="NO"></RadioButton>
+
                 </RadioGroup>
             </TableRow>
+
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="189dp"
                     android:layout_height="wrap_content"
                     android:text="Textura adecuada"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
-                    android:textSize="15sp">
-                </TextView>
+                    android:textSize="15sp"></TextView>
+
                 <RadioGroup
                     android:orientation="horizontal">
+
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SI">
-                </RadioButton>
+                    android:text="SI"></RadioButton>
+
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="NO">
-                </RadioButton>
+                    android:text="NO"></RadioButton>
+
                 </RadioGroup>
             </TableRow>
+
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="189dp"
                     android:layout_height="wrap_content"
                     android:text="Olor adecuado"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
-                    android:textSize="15sp">
-                </TextView>
+                    android:textSize="15sp"></TextView>
+
                 <RadioGroup
                     android:orientation="horizontal">
+
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SI">
-                </RadioButton>
+                    android:text="SI"></RadioButton>
+
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="NO">
-                </RadioButton>
+                    android:text="NO"></RadioButton>
+
                 </RadioGroup>
             </TableRow>
+
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="189dp"
                     android:layout_height="wrap_content"
                     android:text="Aprovado o Rechazado"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
-                    android:textSize="15sp">
-                </TextView>
+                    android:textSize="15sp"></TextView>
+
                 <RadioGroup
                     android:orientation="horizontal">
+
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="A">
-                </RadioButton>
+                    android:text="A"></RadioButton>
+
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="R">
-                </RadioButton>
+                    android:text="R"></RadioButton>
+
                 </RadioGroup>
             </TableRow>
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Accion correctiva"
                 android:id="@+id/ETaccionCorrectiva"></EditText>
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Temperatura de recepcion"
                 android:id="@+id/ETtemRecepcion"></EditText>
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Verificador"
                 android:id="@+id/ETverificador"></EditText>
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Observación"
                 android:id="@+id/ETobservacion"></EditText>
+
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="189dp"
                     android:layout_height="35dp"
@@ -240,10 +262,12 @@
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="15sp"></TextView>
+
                 <Spinner
                     android:layout_width="218dp"
                     android:layout_height="35dp">
                 </Spinner>
+
             </TableRow>
             <TextView
                 android:layout_width="match_parent"
@@ -253,13 +277,13 @@
                 android:textColor="#FFFFFF"
                 android:textSize="15sp"
                 android:id="@+id/TVusuario"></TextView>
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Guardar"
                 android:id="@+id/BTNguardar"></Button>
+
         </LinearLayout>
-
     </ScrollView>
-
 </LinearLayout>
