@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 String md5Str = md5Data.toString(16);
 ////////////////////////////////////Se entregan los valores tanto del web service como de la contraseña encritada al metodo consultapass
                 if(!rut.isEmpty() && !dv.isEmpty() && !password.isEmpty()){
-                    ConsultaPass("http://192.168.1.6/ejemplologin/consultarusuario.php?rut="+ETrut.getText().toString()+"&dv="+ETdv.getText().toString(), md5Str);
+                    ConsultaPass("http://192.168.1.7/ejemplologin/consultarusuario.php?rut="+ETrut.getText().toString()+"&dv="+ETdv.getText().toString(), md5Str);
                 }else{
                     Toast.makeText(MainActivity.this,"No se permiten campos vacios",Toast.LENGTH_SHORT).show();
                 }
