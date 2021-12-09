@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     String usuario = ja.getString(3);
                     String rol = ja.getString(5);
                     String estado = ja.getString(10);
+                    String idUsuario = ja.getString(0);
 
                     if(estado.equals("1")) {
                         if(rol.equals("4") || rol.equals("2")) {
@@ -82,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "Bienvenido", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(MainActivity.this, inicio.class);
                                 intent.putExtra("NombreUsuario", usuario);
+                                intent.putExtra("IdUsuario",idUsuario);
                                 startActivity(intent);
 
                             } else {
