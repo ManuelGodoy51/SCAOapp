@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">scao.cl</string>
+    <string name="SeleccionarTipo">Seleccione un tipo de producto</string>
 </resources>

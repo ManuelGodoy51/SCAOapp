@@ -270,7 +270,10 @@
                 <Spinner
                     android:id="@+id/spTipoAlimento"
                     android:layout_width="218dp"
-                    android:layout_height="35dp"></Spinner>
+                    android:layout_height="35dp"
+                    android:spinnerMode="dialog"
+                    android:prompt="@string/SeleccionarTipo"
+                    tools:ignore="TouchTargetSizeCheck"></Spinner>
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"
