@@ -29,10 +29,11 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:id="@+id/ETcodigoBarra"
                     android:layout_width="305dp"
                     android:layout_height="wrap_content"
                     android:hint="Codigo de barra"
-                    android:id="@+id/ETcodigoBarra"></EditText>
+                    tools:ignore="TouchTargetSizeCheck"></EditText>
 
                 <Button
                     android:layout_width="wrap_content"
@@ -103,14 +104,17 @@
                     android:orientation="horizontal">
 
                     <RadioButton
+                        android:id="@+id/rbEstadoBueno"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:onClick="onRadioButtonClicked"
                         android:text="Bueno"></RadioButton>
 
                     <RadioButton
                         android:layout_width="73dp"
                         android:layout_height="wrap_content"
-                        android:text="Malo"></RadioButton>
+                        android:text="Malo"
+                        android:id="@+id/rbEstadoMalo"></RadioButton>
 
                 </RadioGroup>
             </TableRow>
@@ -133,13 +137,15 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SI"></RadioButton>
+                    android:text="SI"
+                    android:id="@+id/rbColorSi"></RadioButton>
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="NO"
-                    android:layout_marginLeft="27dp"></RadioButton>
+                    android:layout_marginLeft="27dp"
+                    android:id="@+id/rbColorNo"></RadioButton>
 
                 </RadioGroup>
             </TableRow>
@@ -162,13 +168,15 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SI"></RadioButton>
+                    android:text="SI"
+                    android:id="@+id/rbTexturaSi"></RadioButton>
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="NO"
-                    android:layout_marginLeft="27dp"></RadioButton>
+                    android:layout_marginLeft="27dp"
+                    android:id="@+id/rbTexturaNo"></RadioButton>
 
                 </RadioGroup>
             </TableRow>
@@ -191,13 +199,15 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SI"></RadioButton>
+                    android:text="SI"
+                    android:id="@+id/rbOlorSi"></RadioButton>
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="NO"
-                    android:layout_marginLeft="27dp"></RadioButton>
+                    android:layout_marginLeft="27dp"
+                    android:id="@+id/rbOlorNo"></RadioButton>
 
                 </RadioGroup>
             </TableRow>
@@ -220,13 +230,15 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="A"></RadioButton>
+                    android:text="A"
+                    android:id="@+id/rbAprovado"></RadioButton>
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="R"
-                    android:layout_marginLeft="27dp"></RadioButton>
+                    android:layout_marginLeft="27dp"
+                    android:id="@+id/rbRechazado"></RadioButton>
 
                 </RadioGroup>
             </TableRow>
@@ -296,12 +308,12 @@
 
 
             <Button
+                android:id="@+id/BTNguardar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Guardar"
-                android:id="@+id/BTNguardar"
                 android:layout_gravity="center"
-                android:layout_marginBottom="25dp"></Button>
+                android:layout_marginBottom="25dp"
+                android:text="Guardar"></Button>
 
         </LinearLayout>
     </ScrollView>
