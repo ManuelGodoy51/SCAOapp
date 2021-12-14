@@ -107,7 +107,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:onClick="onRadioButtonClicked"
-                        android:text="Bueno"></RadioButton>
+                        android:text="Bueno"
+                        android:checked="true"></RadioButton>
 
                     <RadioButton
                         android:layout_width="73dp"
@@ -137,7 +138,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="SI"
-                    android:id="@+id/rbColorSi"></RadioButton>
+                    android:id="@+id/rbColorSi"
+                    android:checked="true"></RadioButton>
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -168,7 +170,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="SI"
-                    android:id="@+id/rbTexturaSi"></RadioButton>
+                    android:id="@+id/rbTexturaSi"
+                    android:checked="true"></RadioButton>
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -199,7 +202,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="SI"
-                    android:id="@+id/rbOlorSi"></RadioButton>
+                    android:id="@+id/rbOlorSi"
+                    android:checked="true"></RadioButton>
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -230,7 +234,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="A"
-                    android:id="@+id/rbAprovado"></RadioButton>
+                    android:id="@+id/rbAprovado"
+                    android:checked="true"></RadioButton>
 
                 <RadioButton
                     android:layout_width="wrap_content"

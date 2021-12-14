@@ -139,57 +139,7 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
         // Check which radio button was clicked
-        switch(view.getId()) {
-            case R.id.rbEstadoBueno:
-                if (checked)
-                    Estado="1";
-                    break;
-            case R.id.rbEstadoMalo:
-                if (checked)
-                    // Ninjas rule
-                    Estado="0";
-                    break;
-            case R.id.rbColorSi:
-                if (checked)
-                    // Ninjas rule
-                    Color="1";
-                    break;
-            case R.id.rbColorNo:
-                if (checked)
-                    // Ninjas rule
-                    Color="0";
-                    break;
-            case R.id.rbTexturaSi:
-                if (checked)
-                    // Ninjas rule
-                    Textura="1";
-                    break;
-            case R.id.rbTexturaNo:
-                if (checked)
-                    // Ninjas rule
-                    Textura="0";
-                    break;
-            case R.id.rbOlorSi:
-                if (checked)
-                    // Ninjas rule
-                    Olor="1";
-                    break;
-            case R.id.rbOlorNo:
-                if (checked)
-                    // Ninjas rule
-                    Olor="0";
-                    break;
-            case R.id.rbAprovado:
-                if (checked)
-                    // Ninjas rule
-                    Aprovacion="1";
-                    break;
-            case R.id.rbRechazado:
-                if (checked)
-                    // Ninjas rule
-                    Aprovacion="0";
-                    break;
-        }
+
 
     }
     ////////////Se carga la misma fecha en los dos edit text asi que se debe arreglar///////////////////
