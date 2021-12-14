@@ -37,9 +37,8 @@
 
                 <Button
                     android:layout_width="wrap_content"
-                    android:text="Camara">
-
-                </Button>
+                    android:text="Camara"
+                    android:id="@+id/BTNcamara"></Button>
             </TableRow>
 
             <EditText
