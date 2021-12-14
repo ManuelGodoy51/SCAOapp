@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +24,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -33,7 +37,7 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
     Spinner spTipoAlimento;
     EditText ETcodigoBarra,ETnombreP,ETDfechaRecepcion,ETnumeroGP,ETmarca,ETcantidad,
             ETDfechaVencimiento,ETlote,ETaccionCorrectiva,ETtemRecepcion,ETverificador,ETobservacion;
-    Button BTNguardar;
+    Button BTNguardar, BTNcamara;
     String Estado,Color,Textura,Olor,Aprovacion;
 
     ProgressDialog progreso;
@@ -58,6 +62,7 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
         ETverificador=findViewById(R.id.ETverificador);
         ETobservacion=findViewById(R.id.ETobservacion);
         BTNguardar=findViewById(R.id.BTNguardar);
+        BTNcamara=findViewById(R.id.BTNcamara);
         request=Volley.newRequestQueue(this);
         recibirDatos();
         LlenadoSpinner();
@@ -83,7 +88,34 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
             }
         });
 
+        BTNcamara.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                IntentIntegrator integrador= new IntentIntegrator(AgregarProductos.this);
+                integrador.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+                integrador.setPrompt("Lector - CDP");
+                integrador.setCameraId(0);
+                integrador.setBeepEnabled(true);
+                integrador.setBarcodeImageEnabled(true);
+                integrador.initiateScan();
+            }
+        });
     }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if(result !=null){
+            if(result.getContents() == null){
+                Toast.makeText(this,"Scanner cancelado",Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(this,result.getContents(),Toast.LENGTH_SHORT).show();
+                ETcodigoBarra.setText(result.getContents());
+            }
+        }else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
     private void cargarWebService() {
 
         progreso = new ProgressDialog(this);
@@ -94,13 +126,12 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
                 "&marca=" + ETmarca.getText().toString() + "&cantidad=" + ETcantidad.getText().toString() + "&lote=" + ETlote.getText().toString() +
                 "&t_recepcion=" + ETtemRecepcion.getText().toString() + "&fecha_recepcion="+ETDfechaRecepcion.getText().toString()+
                 "&fecha_vencimiento="+ETDfechaVencimiento.getText().toString()+"&id_user="+TVidUsuario.getText().toString()+"&id_tipo_alimento="+(spTipoAlimento.getSelectedItemId()+1)+
-                "&accion_correctiva="+ETaccionCorrectiva+"&verificador="+ETverificador+"&observacion="+ETobservacion+"";
+                "&accion_correctiva="+ETaccionCorrectiva.getText().toString()+"&verificador="+ETverificador.getText().toString()+"&observacion="+ETobservacion.getText().toString()+"";
         url.replace(" ","%20");
 
         jsonObjectRequest= new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
     }
-
 
     @Override
     public void onResponse(JSONObject response) {
@@ -139,8 +170,6 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
         // Check which radio button was clicked
-
-
     }
     ////////////Se carga la misma fecha en los dos edit text asi que se debe arreglar///////////////////
     private void cargarfechaV(){
