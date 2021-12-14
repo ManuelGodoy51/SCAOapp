@@ -53,8 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Fecha de recepcion"
-                android:inputType="date" />
+                android:hint="Fecha de recepcion"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -79,8 +78,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Fecha de vencimiento"
-                android:inputType="date"
-                android:id="@+id/ETDfechaVencimiento"/>
+                android:id="@+id/ETDfechaVencimiento"
+               />
 
             <EditText
                 android:layout_width="match_parent"
@@ -290,13 +289,22 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
-                    android:layout_width="189dp"
+                    android:layout_width="137dp"
                     android:layout_height="35dp"
                     android:text="Usuario"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="15sp"></TextView>
+
+                <TextView
+                    android:id="@+id/TVidUser"
+                    android:layout_width="10dp"
+                    android:enabled="false"
+                    android:visibility="invisible">
+
+                </TextView>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="49dp"
