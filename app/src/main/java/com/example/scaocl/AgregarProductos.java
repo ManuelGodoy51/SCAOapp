@@ -40,9 +40,9 @@ import java.util.Calendar;
 
 public class AgregarProductos extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener{
     TextView TVusuario,TVidUsuario;
-    Spinner spTipoAlimento;
+    Spinner spTipoAlimento, spAccion;
     EditText ETcodigoBarra,ETnombreP,ETDfechaRecepcion,ETnumeroGP,ETmarca,ETcantidad,
-            ETDfechaVencimiento,ETlote,ETaccionCorrectiva,ETtemRecepcion,ETverificador,ETobservacion;
+            ETDfechaVencimiento,ETlote,ETtemRecepcion,ETverificador,ETobservacion;
     Button BTNguardar, BTNcamara;
     String Estado,Color,Textura,Olor,Aprovacion;
     JSONArray ja;
@@ -55,6 +55,7 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_productos);
         spTipoAlimento=findViewById(R.id.spTipoAlimento);
+        spAccion=findViewById(R.id.spAccion);
         ETcodigoBarra=findViewById(R.id.ETcodigoBarra);
         ETnombreP=findViewById(R.id.ETnombreP);
         ETDfechaRecepcion=findViewById(R.id.ETDfechaRecepcion);
@@ -63,7 +64,6 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
         ETcantidad=findViewById(R.id.ETcantidad);
         ETDfechaVencimiento=findViewById(R.id.ETDfechaVencimiento);
         ETlote=findViewById(R.id.ETlote);
-        ETaccionCorrectiva=findViewById(R.id.ETaccionCorrectiva);
         ETtemRecepcion=findViewById(R.id.ETtemRecepcion);
         ETverificador=findViewById(R.id.ETverificador);
         ETobservacion=findViewById(R.id.ETobservacion);
@@ -71,15 +71,30 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
         BTNcamara=findViewById(R.id.BTNcamara);
         request=Volley.newRequestQueue(this);
         recibirDatos();
-        LlenadoSpinner();
+        LlenadoSpinnerTipo();
+        LlenadoSpinnerAccion();
 //datos para enviar codigo_barra,nombre_producto,numero_gp,marca,cantidad,lote,temrecepcion//
         BTNguardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle extra = getIntent().getExtras();
                 String IdUsuario = extra.getString("IdUsuario");
+                String codigoBarra = ETcodigoBarra.getText().toString();
+                String nombreP = ETnombreP.getText().toString();
+                String cantidad = ETcantidad.getText().toString();
+                String marca = ETmarca.getText().toString();
+                String lote = ETlote.getText().toString();
+                String numeroGP = ETnumeroGP.getText().toString();
+                String fechaR = ETDfechaRecepcion.getText().toString();
+                String fechaV = ETDfechaVencimiento.getText().toString();
+
+                if(!codigoBarra.isEmpty()&& !nombreP.isEmpty()&& !cantidad.isEmpty()&& !marca.isEmpty()&& !lote.isEmpty()&& !numeroGP.isEmpty()
+                && !fechaR.isEmpty()&& !fechaV.isEmpty()){
                 cargarWebService();
                 limpiarCampos();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Algunos campos obligatorios estan vacios", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         /*ETDfechaVencimiento.setOnClickListener(new View.OnClickListener() {
@@ -100,7 +115,7 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
             public void onClick(View view) {
                 IntentIntegrator integrador= new IntentIntegrator(AgregarProductos.this);
                 integrador.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
-                integrador.setPrompt("Lector - CDP");
+                integrador.setPrompt("Lector - CDB");
                 integrador.setCameraId(0);
                 integrador.setBeepEnabled(true);
                 integrador.setBarcodeImageEnabled(true);
@@ -110,7 +125,7 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
         ETcodigoBarra.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                Consultaproducto("http://192.168.1.7/ejemplologin/consultaproducto.php?codigo_barra="+ETcodigoBarra.getText().toString()+"");
+                //Consultaproducto("http://192.168.1.7/ejemplologin/consultaproducto.php?codigo_barra="+ETcodigoBarra.getText().toString()+"");
             }
 
             @Override
@@ -149,7 +164,7 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
                 "&marca=" + ETmarca.getText().toString() + "&cantidad=" + ETcantidad.getText().toString() + "&lote=" + ETlote.getText().toString() +
                 "&t_recepcion=" + ETtemRecepcion.getText().toString() + "&fecha_recepcion="+ETDfechaRecepcion.getText().toString()+
                 "&fecha_vencimiento="+ETDfechaVencimiento.getText().toString()+"&id_user="+TVidUsuario.getText().toString()+"&id_tipo_alimento="+(spTipoAlimento.getSelectedItemId()+1)+
-                "&accion_correctiva="+ETaccionCorrectiva.getText().toString()+"&verificador="+ETverificador.getText().toString()+"&observacion="+ETobservacion.getText().toString()+"";
+                "&accion_correctiva="+(spAccion.getSelectedItemId()+1)+"&verificador="+ETverificador.getText().toString()+"&observacion="+ETobservacion.getText().toString()+"";
         url.replace(" ","%20");
 
         jsonObjectRequest= new JsonObjectRequest(Request.Method.GET,url,null,this,this);
@@ -177,8 +192,15 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
         TVidUsuario.setText(IdUsuario);
         TVusuario.setText(Nusuario);
     }
+    private void LlenadoSpinnerAccion(){
+        ArrayList<AgregarAccion> agregarAccion = new ArrayList();
 
-    private void LlenadoSpinner(){
+        agregarAccion.add(new AgregarAccion(1,"A = Ninguna"));
+        agregarAccion.add(new AgregarAccion(2,"B = Informar a supervisor"));
+        ArrayAdapter<AgregarAccion> adapter = new ArrayAdapter<>(this,R.layout.support_simple_spinner_dropdown_item,agregarAccion);
+        spAccion.setAdapter(adapter);
+    }
+    private void LlenadoSpinnerTipo(){
         ArrayList<TipoAlimento> tipoProducto = new ArrayList();
 
         tipoProducto.add(new TipoAlimento(1,"refrigerados(0°- 5°max)"));
@@ -231,7 +253,6 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
         ETtemRecepcion.setText("");
         ETDfechaRecepcion.setText("");
         ETDfechaVencimiento.setText("");
-        ETaccionCorrectiva.setText("");
         ETverificador.setText("");
         ETobservacion.setText("");
         ETnumeroGP.setText("");
@@ -250,14 +271,17 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
                     ETmarca.setText(ja.getString(3));
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), "no existe producto en base de datos", Toast.LENGTH_LONG).show();
+
                 }
             }
+
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), "no existe producto en base de datos", Toast.LENGTH_LONG).show();
             }
         });
         queue.add(stringRequest);
     }
+
 }

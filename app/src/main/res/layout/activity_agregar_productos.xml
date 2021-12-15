@@ -15,6 +15,14 @@
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Los que posean (*) son campos obligatorios"
+        android:textAlignment="center"
+        android:textSize="15sp"
+        android:textStyle="italic" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -32,7 +40,7 @@
                     android:id="@+id/ETcodigoBarra"
                     android:layout_width="305dp"
                     android:layout_height="wrap_content"
-                    android:hint="Codigo de barra"
+                    android:hint="Codigo de barra*"
                     tools:ignore="TouchTargetSizeCheck"></EditText>
 
                 <Button
@@ -44,7 +52,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nombre producto"
+                android:hint="Nombre producto*"
                 android:id="@+id/ETnombreP"></EditText>
 
             <EditText
@@ -52,38 +60,38 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Fecha de recepcion"/>
+                android:hint="Fecha de recepcion*"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Numero guia de despacho"
+                android:hint="Numero guia de despacho*"
                 android:id="@+id/ETnumeroGP"></EditText>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Marca"
+                android:hint="Marca*"
                 android:id="@+id/ETmarca"></EditText>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Cantidad"
+                android:hint="Cantidad*"
                 android:id="@+id/ETcantidad"></EditText>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Fecha de vencimiento formato YYYY-MM-DD"
+                android:hint="Fecha de vencimiento* formato YYYY-MM-DD"
                 android:id="@+id/ETDfechaVencimiento"
                 ></EditText>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Lote"
+                android:hint="Lote*"
                 android:id="@+id/ETlote"></EditText>
 
             <TableRow
@@ -249,12 +257,6 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Accion correctiva"
-                android:id="@+id/ETaccionCorrectiva"></EditText>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:hint="Temperatura de recepcion"
                 android:id="@+id/ETtemRecepcion"></EditText>
 
@@ -269,7 +271,26 @@
                 android:layout_height="wrap_content"
                 android:hint="Observación"
                 android:id="@+id/ETobservacion"></EditText>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+                <TextView
+                    android:layout_width="189dp"
+                    android:layout_height="35dp"
+                    android:text="Accion correctiva"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"></TextView>
+
+                <Spinner
+                    android:id="@+id/spAccion"
+                    android:layout_width="218dp"
+                    android:layout_height="35dp"
+                    android:spinnerMode="dialog"
+                    android:prompt="@string/SeleccionarAccion"
+                    tools:ignore="TouchTargetSizeCheck"></Spinner>
+            </TableRow>
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
