@@ -76,12 +76,12 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
                 limpiarCampos();
             }
         });
-        ETDfechaVencimiento.setOnClickListener(new View.OnClickListener() {
+        /*ETDfechaVencimiento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cargarfechaV();
+
             }
-        });
+        });*/
         ETDfechaRecepcion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -173,7 +173,7 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
         // Check which radio button was clicked
     }
     ////////////Se carga la misma fecha en los dos edit text asi que se debe arreglar///////////////////
-    private void cargarfechaV(){
+    /*private void cargarfechaV(){
         final Calendar c=Calendar.getInstance();
         dia=c.get(Calendar.DAY_OF_MONTH);
         mes=c.get(Calendar.MONTH);
@@ -185,7 +185,7 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
             }
         },ano,mes,dia);
         datePickerDialog.show();
-    }
+    }*/
 
     private void cargarfechaR(){
         final Calendar c=Calendar.getInstance();
