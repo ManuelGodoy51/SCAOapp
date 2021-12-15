@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class inicio extends AppCompatActivity {
     TextView twUsuario;
-    Button btnAgregarProducto;
+    Button btnAgregarProducto, btnListarProducto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +18,7 @@ public class inicio extends AppCompatActivity {
         setContentView(R.layout.activity_inicio);
         recibirDatos();
         btnAgregarProducto = (Button) findViewById(R.id.btnAgregarProducto);
+        btnListarProducto = (Button) findViewById(R.id.btnListarProducto);
         btnAgregarProducto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -29,6 +30,13 @@ public class inicio extends AppCompatActivity {
                 Intent intent = new Intent(inicio.this, AgregarProductos.class);
                 intent.putExtra("NombreUsuario",Nusuario);
                 intent.putExtra("IdUsuario",IdUsuario);
+                startActivity(intent);
+            }
+        });
+        btnListarProducto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(inicio.this, ListarProducto.class);
                 startActivity(intent);
             }
         });
