@@ -73,6 +73,7 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
                 Bundle extra = getIntent().getExtras();
                 String IdUsuario = extra.getString("IdUsuario");
                 cargarWebService();
+                limpiarCampos();
             }
         });
         ETDfechaVencimiento.setOnClickListener(new View.OnClickListener() {
@@ -198,5 +199,19 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
             }
         },ano2,mes2,dia2);
         datePickerDialog.show();
+    }
+    private void limpiarCampos(){
+        ETcodigoBarra.setText("");
+        ETnombreP.setText("");
+        ETcantidad.setText("");
+        ETmarca.setText("");
+        ETlote.setText("");
+        ETtemRecepcion.setText("");
+        ETDfechaRecepcion.setText("");
+        ETDfechaVencimiento.setText("");
+        ETaccionCorrectiva.setText("");
+        ETverificador.setText("");
+        ETobservacion.setText("");
+        ETnumeroGP.setText("");
     }
 }
