@@ -8,6 +8,9 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 
 import android.widget.ArrayAdapter;
@@ -23,10 +26,13 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -39,7 +45,7 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
             ETDfechaVencimiento,ETlote,ETaccionCorrectiva,ETtemRecepcion,ETverificador,ETobservacion;
     Button BTNguardar, BTNcamara;
     String Estado,Color,Textura,Olor,Aprovacion;
-
+    JSONArray ja;
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -99,6 +105,22 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
                 integrador.setBeepEnabled(true);
                 integrador.setBarcodeImageEnabled(true);
                 integrador.initiateScan();
+            }
+        });
+        ETcodigoBarra.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                Consultaproducto("http://192.168.1.7/ejemplologin/consultaproducto.php?codigo_barra="+ETcodigoBarra.getText().toString()+"");
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    ///Esta parte no es necesaria////
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                Consultaproducto("http://192.168.1.7/ejemplologin/consultaproducto.php?codigo_barra=" + ETcodigoBarra.getText().toString() + "");
             }
         });
     }
@@ -213,5 +235,29 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
         ETverificador.setText("");
         ETobservacion.setText("");
         ETnumeroGP.setText("");
+    }
+    private void Consultaproducto(String URL){
+        Log.i("url",""+URL);
+        RequestQueue queue = Volley.newRequestQueue(this);
+        StringRequest stringRequest= new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    ja = new JSONArray(response);
+                    String nombre = ja.getString(2);
+                    String marca = ja.getString(3);
+                    ETnombreP.setText(ja.getString(2));
+                    ETmarca.setText(ja.getString(3));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "no existe producto en base de datos", Toast.LENGTH_LONG).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        });
+        queue.add(stringRequest);
     }
 }
