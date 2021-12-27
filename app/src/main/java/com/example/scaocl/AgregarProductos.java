@@ -39,12 +39,11 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class AgregarProductos extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener{
-    TextView TVusuario,TVidUsuario;
+    TextView TVusuario,TVidUsuario,TVestado,TVcolor,TVtextura,TVolor,TVaprovacion;
     Spinner spTipoAlimento, spAccion;
     EditText ETcodigoBarra,ETnombreP,ETDfechaRecepcion,ETnumeroGP,ETmarca,ETcantidad,
             ETDfechaVencimiento,ETlote,ETtemRecepcion,ETverificador,ETobservacion;
     Button BTNguardar, BTNcamara;
-    String Estado,Color,Textura,Olor,Aprovacion;
     JSONArray ja;
     ProgressDialog progreso;
     RequestQueue request;
@@ -70,6 +69,11 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
         BTNguardar=findViewById(R.id.BTNguardar);
         BTNcamara=findViewById(R.id.BTNcamara);
         request=Volley.newRequestQueue(this);
+        TVestado = (TextView) findViewById(R.id.TVestado);
+        TVcolor = (TextView) findViewById(R.id.TVcolor);
+        TVtextura = (TextView) findViewById(R.id.TVtextura);
+        TVolor = (TextView) findViewById(R.id.TVolor);
+        TVaprovacion = (TextView) findViewById(R.id.TVaprovacion);
         recibirDatos();
         LlenadoSpinnerTipo();
         LlenadoSpinnerAccion();
@@ -164,7 +168,9 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
                 "&marca=" + ETmarca.getText().toString() + "&cantidad=" + ETcantidad.getText().toString() + "&lote=" + ETlote.getText().toString() +
                 "&t_recepcion=" + ETtemRecepcion.getText().toString() + "&fecha_recepcion="+ETDfechaRecepcion.getText().toString()+
                 "&fecha_vencimiento="+ETDfechaVencimiento.getText().toString()+"&id_user="+TVidUsuario.getText().toString()+"&id_tipo_alimento="+(spTipoAlimento.getSelectedItemId()+1)+
-                "&accion_correctiva="+(spAccion.getSelectedItemId()+1)+"&verificador="+ETverificador.getText().toString()+"&observacion="+ETobservacion.getText().toString()+"";
+                "&accion_correctiva="+(spAccion.getSelectedItemId()+1)+"&verificador="+ETverificador.getText().toString()+"&observacion="+ETobservacion.getText().toString()+
+                "&estado_envase="+TVestado.getText().toString()+"&color_adecuado="+TVcolor.getText().toString()+"&textura_adecuada="+TVtextura.getText().toString()+"&olor_adecuado="+TVolor.getText().toString()+
+                "&a_r="+TVaprovacion.getText().toString()+"";
         url.replace(" ","%20");
 
         jsonObjectRequest= new JsonObjectRequest(Request.Method.GET,url,null,this,this);
@@ -209,12 +215,6 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
         tipoProducto.add(new TipoAlimento(4,"huevos,frutas y verduras"));
         ArrayAdapter<TipoAlimento> adapter = new ArrayAdapter<>(this,R.layout.support_simple_spinner_dropdown_item,tipoProducto);
         spTipoAlimento.setAdapter(adapter);
-    }
-
-    public void onRadioButtonClicked(View view) {
-        // Is the button now checked?
-        boolean checked = ((RadioButton) view).isChecked();
-        // Check which radio button was clicked
     }
     ////////////Se carga la misma fecha en los dos edit text asi que se debe arreglar///////////////////
     /*private void cargarfechaV(){
@@ -284,4 +284,73 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
         queue.add(stringRequest);
     }
 
+    public void RGestado(View view) {
+        boolean checked = ((RadioButton) view).isChecked();
+        switch (view.getId()){
+            case R.id.rbEstadoBueno:
+                if(checked)
+                TVestado.setText("1");
+                break;
+            case R.id.rbEstadoMalo:
+                if(checked)
+                TVestado.setText("0");
+                break;
+        }
+    }
+
+    public void RGcolor(View view) {
+        boolean checked = ((RadioButton) view).isChecked();
+        switch (view.getId()){
+            case R.id.rbColorSi:
+                if(checked)
+                TVcolor.setText("1");
+                break;
+            case R.id.rbColorNo:
+                if(checked)
+                TVcolor.setText("0");
+                break;
+        }
+    }
+
+    public void RGtextura(View view) {
+        boolean checked = ((RadioButton) view).isChecked();
+        switch (view.getId()){
+            case R.id.rbTexturaSi:
+                if(checked)
+                TVtextura.setText("1");
+                break;
+            case R.id.rbTexturaNo:
+                if(checked)
+                TVtextura.setText("0");
+                break;
+        }
+    }
+
+    public void RGolor(View view) {
+        boolean checked = ((RadioButton) view).isChecked();
+        switch (view.getId()){
+            case R.id.rbOlorSi:
+                if(checked)
+                    TVolor.setText("1");
+                break;
+            case R.id.rbOlorNo:
+                if(checked)
+                    TVolor.setText("0");
+                break;
+        }
+    }
+
+    public void RGaprovacion(View view) {
+        boolean checked = ((RadioButton) view).isChecked();
+        switch (view.getId()){
+            case R.id.rbAprovado:
+                if(checked)
+                    TVaprovacion.setText("1");
+                break;
+            case R.id.rbRechazado:
+                if(checked)
+                    TVaprovacion.setText("0");
+                break;
+        }
+    }
 }
