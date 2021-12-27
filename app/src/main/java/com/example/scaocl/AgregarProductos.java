@@ -135,7 +135,7 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
 
             @Override
             public void afterTextChanged(Editable s) {
-                Consultaproducto("http://192.168.1.7/ejemplologin/consultaproducto.php?codigo_barra=" + ETcodigoBarra.getText().toString() + "");
+                Consultaproducto("http://192.168.1.3/ejemplologin/consultaproducto.php?codigo_barra=" + ETcodigoBarra.getText().toString() + "");
             }
         });
     }
@@ -159,7 +159,7 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
         progreso = new ProgressDialog(this);
         progreso.setMessage("Cargando...");
         progreso.show();
-        String url = "http://192.168.1.7/ejemplologin/registroproducto.php?codigo_barra=" + ETcodigoBarra.getText().toString() +
+        String url = "http://192.168.1.3/ejemplologin/registroproducto.php?codigo_barra=" + ETcodigoBarra.getText().toString() +
                 "&nombre_producto=" + ETnombreP.getText().toString() + "&n_guia_despacho=" + ETnumeroGP.getText().toString() +
                 "&marca=" + ETmarca.getText().toString() + "&cantidad=" + ETcantidad.getText().toString() + "&lote=" + ETlote.getText().toString() +
                 "&t_recepcion=" + ETtemRecepcion.getText().toString() + "&fecha_recepcion="+ETDfechaRecepcion.getText().toString()+

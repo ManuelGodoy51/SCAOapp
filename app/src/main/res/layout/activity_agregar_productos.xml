@@ -103,7 +103,7 @@
                     android:layout_height="wrap_content"
                     android:text="Estado envase"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF"
+
                     android:textSize="15sp"></TextView>
 
                 <RadioGroup
@@ -135,7 +135,7 @@
                     android:layout_height="wrap_content"
                     android:text="Color adecuado"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF"
+
                     android:textSize="15sp"></TextView>
 
                 <RadioGroup
@@ -167,7 +167,7 @@
                     android:layout_height="wrap_content"
                     android:text="Textura adecuada"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF"
+
                     android:textSize="15sp"></TextView>
 
                 <RadioGroup
@@ -199,7 +199,7 @@
                     android:layout_height="wrap_content"
                     android:text="Olor adecuado"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF"
+
                     android:textSize="15sp"></TextView>
 
                 <RadioGroup
@@ -231,7 +231,7 @@
                     android:layout_height="wrap_content"
                     android:text="Aprovado o Rechazado"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF"
+
                     android:textSize="15sp"></TextView>
 
                 <RadioGroup
@@ -257,7 +257,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Temperatura de recepcion"
+                android:hint="Temperatura de recepcion*"
                 android:id="@+id/ETtemRecepcion"></EditText>
 
             <EditText
@@ -280,7 +280,7 @@
                     android:layout_height="35dp"
                     android:text="Accion correctiva"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF"
+
                     android:textSize="15sp"></TextView>
 
                 <Spinner
@@ -300,7 +300,7 @@
                     android:layout_height="35dp"
                     android:text="Tipo de alimento"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF"
+
                     android:textSize="15sp"></TextView>
 
                 <Spinner
@@ -320,7 +320,7 @@
                     android:layout_height="35dp"
                     android:text="Usuario"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF"
+
                     android:textSize="15sp"></TextView>
 
                 <TextView
@@ -334,7 +334,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="49dp"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF"
+
                     android:textSize="15sp"
                     android:id="@+id/TVusuario"></TextView>
             </TableRow>
