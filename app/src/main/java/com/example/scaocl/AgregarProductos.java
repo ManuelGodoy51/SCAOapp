@@ -51,7 +51,7 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
     ProgressDialog progreso;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
-    private int dia,mes,ano,dia2,mes2,ano2;
+    private int dia,mes,ano;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -60,7 +60,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Fecha de recepcion*"/>
+                android:enabled="false"
+                android:hint="Fecha de recepcion*" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -81,12 +82,12 @@
                 android:id="@+id/ETcantidad"></EditText>
 
             <EditText
+                android:id="@+id/ETDfechaVencimiento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:editable="false"
                 android:ems="10"
-                android:hint="Fecha de vencimiento* formato YYYY-MM-DD"
-                android:id="@+id/ETDfechaVencimiento"
-                ></EditText>
+                android:hint="Fecha de vencimiento* formato YYYY-MM-DD"></EditText>
 
             <EditText
                 android:layout_width="match_parent"
