@@ -35,8 +35,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class AgregarProductos extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener{
     TextView TVusuario,TVidUsuario,TVestado,TVcolor,TVtextura,TVolor,TVaprovacion;
@@ -74,6 +77,7 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
         TVtextura = (TextView) findViewById(R.id.TVtextura);
         TVolor = (TextView) findViewById(R.id.TVolor);
         TVaprovacion = (TextView) findViewById(R.id.TVaprovacion);
+        cargarfechaR();
         recibirDatos();
         LlenadoSpinnerTipo();
         LlenadoSpinnerAccion();
@@ -101,18 +105,13 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
                 }
             }
         });
-        /*ETDfechaVencimiento.setOnClickListener(new View.OnClickListener() {
+        ETDfechaVencimiento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-            }
-        });*/
-        ETDfechaRecepcion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cargarfechaR();
+            cargarfechaV();
             }
         });
+
 
         BTNcamara.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -217,32 +216,23 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
         spTipoAlimento.setAdapter(adapter);
     }
     ////////////Se carga la misma fecha en los dos edit text asi que se debe arreglar///////////////////
-    /*private void cargarfechaV(){
+    private void cargarfechaV(){
         final Calendar c=Calendar.getInstance();
         dia=c.get(Calendar.DAY_OF_MONTH);
         mes=c.get(Calendar.MONTH);
         ano=c.get(Calendar.YEAR);
         DatePickerDialog datePickerDialog= new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
-            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            public void onDateSet(DatePicker view, int ano, int mes, int dia) {
                 ETDfechaVencimiento.setText(ano+"-"+ (mes+1) +"-"+dia);
             }
         },ano,mes,dia);
         datePickerDialog.show();
-    }*/
+    }
 
     private void cargarfechaR(){
-        final Calendar c=Calendar.getInstance();
-        dia2=c.get(Calendar.DAY_OF_MONTH);
-        mes2=c.get(Calendar.MONTH);
-        ano2=c.get(Calendar.YEAR);
-        DatePickerDialog datePickerDialog= new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                ETDfechaRecepcion.setText(ano2+"-"+ (mes2+1) +"-"+dia2);
-            }
-        },ano2,mes2,dia2);
-        datePickerDialog.show();
+        String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+        ETDfechaRecepcion.setText(date);
     }
     private void limpiarCampos(){
         ETcodigoBarra.setText("");
