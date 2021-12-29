@@ -95,9 +95,6 @@ ArrayList<producto> listaProductos;
                 String codigoBarra = ETcodigoBarraLista.getText().toString();
                 if(!codigoBarra.isEmpty()){
                     productoBusqueda("http://192.168.1.3/ejemplologin/consultaproducto.php?codigo_barra=" + ETcodigoBarraLista.getText().toString() + "");
-                }else {
-                    TVcodigoBarra.setText("");
-                    TVnombre.setText("");
                 }
             }
         });
