@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="379dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="25dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="461dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:text="Codigo de barra:"
+            android:textSize="17sp"></TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint=""
+            android:textSize="17sp"
+            android:layout_weight=".8"
+            android:id="@+id/TVcodigoBarra"></TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="379dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="461dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:text="Nombre producto:"
+            android:textSize="17sp"></TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint=""
+            android:textSize="17sp"
+            android:layout_weight=".8"
+            android:id="@+id/TVnombre"></TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="379dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="461dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:text="Marca producto:"
+            android:textSize="17sp"></TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint=""
+            android:textSize="17sp"
+            android:layout_weight=".8"
+            android:id="@+id/TVmarca"></TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="379dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="461dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:text="Stock:"
+            android:textSize="17sp"></TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint=""
+            android:textSize="17sp"
+            android:layout_weight=".8"
+            android:id="@+id/TVstock"></TextView>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="#78B533"
+        ></TextView>
+</LinearLayout>

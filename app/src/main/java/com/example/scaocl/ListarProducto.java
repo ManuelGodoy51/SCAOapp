@@ -1,6 +1,8 @@
 package com.example.scaocl;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -29,14 +31,22 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class ListarProducto extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
 EditText ETcodigoBarraLista;
 TextView TVcodigoBarra,TVnombre,TVmarca,TVstock;
 Button BTNcamaraa;
+
+
 ProgressDialog progreso;
 RequestQueue request;
 JsonObjectRequest jsonObjectRequest;
 JSONArray ja;
+
+RecyclerView recyclerProductos;
+ArrayList<producto> listaProductos;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +58,15 @@ JSONArray ja;
         TVnombre=findViewById(R.id.TVnombre);
         TVmarca=findViewById(R.id.TVmarca);
         TVstock=findViewById(R.id.TVstock);
+
         request = Volley.newRequestQueue(this);
+        listaProductos = new ArrayList<>();
+        recyclerProductos = (RecyclerView) findViewById(R.id.idRecycler);
+        recyclerProductos.setLayoutManager(new LinearLayoutManager(this));
+        recyclerProductos.setHasFixedSize(true);
+        
+        cargarWebService();
+        
         BTNcamaraa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,6 +102,50 @@ JSONArray ja;
             }
         });
     }
+
+    private void cargarWebService() {
+        progreso = new ProgressDialog(this);
+        progreso.setMessage("Consultando...");
+        progreso.show();
+        String url = "http://192.168.1.3/ejemplologin/listarproducto.php";
+        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,url,null,this,this);
+        request.add(jsonObjectRequest);
+    }
+    @Override
+    public void onErrorResponse(VolleyError error) {
+
+        Toast.makeText(getApplicationContext(),"No se pudo conectar con servidor "+error.toString(),Toast.LENGTH_SHORT).show();
+        progreso.hide();
+    }
+
+    @Override
+    public void onResponse(JSONObject response) {
+        producto producto=null;
+        JSONArray json = response.optJSONArray("productos");
+        try {
+        for(int i=0; i<json.length();i++){
+            producto = new producto();
+            JSONObject jsonObject= null;
+            jsonObject=json.getJSONObject(i);
+
+            producto.setCodigo_barra(jsonObject.optString("a_codigo_barra"));
+            producto.setNombre(jsonObject.optString("a_nombre"));
+            producto.setMarca(jsonObject.optString("a_marca"));
+            producto.setStock(jsonObject.optInt("a_stock"));
+
+            listaProductos.add(producto);
+
+            }
+        progreso.hide();
+        productosAdapter adapter = new productosAdapter(listaProductos);
+        recyclerProductos.setAdapter(adapter);
+        }catch (JSONException e) {
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(),"No se pudo conectar con servidor "+response.toString(),Toast.LENGTH_SHORT).show();
+            progreso.hide();
+        }
+    }
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
@@ -98,15 +160,7 @@ JSONArray ja;
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
-    @Override
-    public void onErrorResponse(VolleyError error) {
 
-    }
-
-    @Override
-    public void onResponse(JSONObject response) {
-
-    }
     private void productoBusqueda(String URL){
         Log.i("url",""+URL);
         RequestQueue queue = Volley.newRequestQueue(this);
