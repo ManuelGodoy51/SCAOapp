@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/ETcodigoBarraLista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="34dp"
@@ -34,12 +34,12 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColor="#4CAF50"
-        app:layout_constraintEnd_toStartOf="@+id/BTNcamara"
+        app:layout_constraintEnd_toStartOf="@+id/BTNcamaraa"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <Button
-        android:id="@+id/BTNcamara"
+        android:id="@+id/BTNcamaraa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -48,7 +48,7 @@
         android:background="@drawable/button_rounded"
         android:text="Camara"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
+        app:layout_constraintStart_toEndOf="@+id/ETcodigoBarraLista"
         app:layout_constraintTop_toBottomOf="@+id/textView4"></Button>
 
     <LinearLayout
@@ -61,10 +61,10 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName">
+        app:layout_constraintTop_toBottomOf="@+id/ETcodigoBarraLista">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="461dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.5"
             android:text="Codigo de barra:"
@@ -91,7 +91,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="461dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.5"
             android:text="Nombre producto:"
@@ -118,7 +118,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="461dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.5"
             android:text="Marca producto:"
@@ -145,7 +145,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="461dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.5"
             android:text="Stock:"
