@@ -76,6 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Numero guia de despacho*"
+                android:inputType="number"
                 android:textColor="#4CAF50"></EditText>
 
             <EditText
