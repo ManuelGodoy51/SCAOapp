@@ -98,8 +98,8 @@ public class AgregarProductos extends AppCompatActivity implements Response.List
 
                 if(!codigoBarra.isEmpty()&& !nombreP.isEmpty()&& !cantidad.isEmpty()&& !marca.isEmpty()&& !lote.isEmpty()&& !numeroGP.isEmpty()
                 && !fechaR.isEmpty()&& !fechaV.isEmpty()){
-                cargarWebService();
-                limpiarCampos();
+                        cargarWebService();
+                        limpiarCampos();
                 }else {
                     Toast.makeText(getApplicationContext(), "Algunos campos obligatorios estan vacios", Toast.LENGTH_SHORT).show();
                 }

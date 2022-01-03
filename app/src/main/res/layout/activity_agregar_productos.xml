@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AgregarProductos"
-    android:background="@color/black">
+    tools:context=".AgregarProductos">
 
     <TextView
         android:layout_width="match_parent"
@@ -16,6 +15,7 @@
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,6 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -42,14 +43,15 @@
                     android:layout_width="305dp"
                     android:layout_height="wrap_content"
                     android:hint="Codigo de barra*"
+                    android:inputType="number"
                     android:textColor="#4CAF50"
                     tools:ignore="TouchTargetSizeCheck"></EditText>
 
                 <Button
-                    android:layout_width="wrap_content"
-                    android:text="Camara"
                     android:id="@+id/BTNcamara"
-                    android:background="@drawable/button_rounded"></Button>
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/button_rounded"
+                    android:text="Camara"></Button>
             </TableRow>
 
             <EditText
@@ -57,6 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nombre producto*"
+                android:maxLength="25"
                 android:textColor="#4CAF50"></EditText>
 
             <EditText
@@ -80,6 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Marca*"
+                android:maxLength="25"
                 android:textColor="#4CAF50"></EditText>
 
             <EditText
@@ -87,6 +91,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Cantidad*"
+                android:inputType="number"
+                android:maxLength="3"
                 android:textColor="#4CAF50"></EditText>
 
             <EditText
@@ -103,6 +109,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Lote*"
+                android:maxLength="20"
                 android:textColor="#4CAF50"></EditText>
 
             <TableRow
@@ -123,22 +130,25 @@
 
                     <RadioButton
                         android:id="@+id/rbEstadoBueno"
-                        android:layout_width="wrap_content"
+                        android:layout_width="114dp"
                         android:layout_height="wrap_content"
                         android:checked="true"
                         android:text="Bueno"></RadioButton>
 
                     <RadioButton
                         android:id="@+id/rbEstadoMalo"
-                        android:layout_width="73dp"
+                        android:layout_width="107dp"
                         android:layout_height="wrap_content"
                         android:text="Malo"></RadioButton>
 
                 </RadioGroup>
+
                 <TextView
                     android:id="@+id/TVestado"
                     android:layout_width="10dp"
                     android:enabled="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
                     android:visibility="invisible">
 
                 </TextView>
@@ -157,25 +167,26 @@
                     android:textSize="15sp"></TextView>
 
                 <RadioGroup
-                    android:orientation="horizontal"
                     android:id="@+id/RGcolor"
-                    android:onClick="RGcolor">
+                    android:onClick="RGcolor"
+                    android:orientation="horizontal">
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="SI"
-                    android:id="@+id/rbColorSi"
-                    android:checked="true"></RadioButton>
+                    <RadioButton
+                        android:id="@+id/rbColorSi"
+                        android:layout_width="113dp"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="SI"></RadioButton>
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="NO"
-                    android:layout_marginLeft="27dp"
-                    android:id="@+id/rbColorNo"></RadioButton>
+                    <RadioButton
+                        android:id="@+id/rbColorNo"
+                        android:layout_width="109dp"
+                        android:layout_height="wrap_content"
+
+                        android:text="NO"></RadioButton>
 
                 </RadioGroup>
+
                 <TextView
                     android:id="@+id/TVcolor"
                     android:layout_width="10dp"
@@ -198,25 +209,26 @@
                     android:textSize="15sp"></TextView>
 
                 <RadioGroup
-                    android:orientation="horizontal"
                     android:id="@+id/RGtextura"
-                    android:onClick="RGtextura">
+                    android:onClick="RGtextura"
+                    android:orientation="horizontal">
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="SI"
-                    android:id="@+id/rbTexturaSi"
-                    android:checked="true"></RadioButton>
+                    <RadioButton
+                        android:id="@+id/rbTexturaSi"
+                        android:layout_width="114dp"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="SI"></RadioButton>
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="NO"
-                    android:layout_marginLeft="27dp"
-                    android:id="@+id/rbTexturaNo"></RadioButton>
+                    <RadioButton
+                        android:id="@+id/rbTexturaNo"
+                        android:layout_width="107dp"
+                        android:layout_height="wrap_content"
+
+                        android:text="NO"></RadioButton>
 
                 </RadioGroup>
+
                 <TextView
                     android:id="@+id/TVtextura"
                     android:layout_width="10dp"
@@ -239,25 +251,26 @@
                     android:textSize="15sp"></TextView>
 
                 <RadioGroup
-                    android:orientation="horizontal"
                     android:id="@+id/RGolor"
-                    android:onClick="RGolor">
+                    android:onClick="RGolor"
+                    android:orientation="horizontal">
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="SI"
-                    android:id="@+id/rbOlorSi"
-                    android:checked="true"></RadioButton>
+                    <RadioButton
+                        android:id="@+id/rbOlorSi"
+                        android:layout_width="114dp"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="SI"></RadioButton>
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="NO"
-                    android:layout_marginLeft="27dp"
-                    android:id="@+id/rbOlorNo"></RadioButton>
+                    <RadioButton
+                        android:id="@+id/rbOlorNo"
+                        android:layout_width="108dp"
+                        android:layout_height="wrap_content"
+
+                        android:text="NO"></RadioButton>
 
                 </RadioGroup>
+
                 <TextView
                     android:id="@+id/TVolor"
                     android:layout_width="10dp"
@@ -280,25 +293,26 @@
                     android:textSize="15sp"></TextView>
 
                 <RadioGroup
-                    android:orientation="horizontal"
                     android:id="@+id/RGaprovacion"
-                    android:onClick="RGaprovacion">
+                    android:onClick="RGaprovacion"
+                    android:orientation="horizontal">
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="A"
-                    android:id="@+id/rbAprovado"
-                    android:checked="true"></RadioButton>
+                    <RadioButton
+                        android:id="@+id/rbAprovado"
+                        android:layout_width="114dp"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="A"></RadioButton>
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="R"
-                    android:layout_marginLeft="27dp"
-                    android:id="@+id/rbRechazado"></RadioButton>
+                    <RadioButton
+                        android:id="@+id/rbRechazado"
+                        android:layout_width="106dp"
+                        android:layout_height="wrap_content"
+
+                        android:text="R"></RadioButton>
 
                 </RadioGroup>
+
                 <TextView
                     android:id="@+id/TVaprovacion"
                     android:layout_width="10dp"
@@ -313,6 +327,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Temperatura de recepcion*"
+                android:inputType="number"
+                android:maxLength="4"
                 android:textColor="#4CAF50"></EditText>
 
             <EditText
@@ -320,6 +336,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Verificador"
+                android:maxLength="20"
                 android:textColor="#4CAF50"></EditText>
 
             <EditText
@@ -327,7 +344,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Observación"
+                android:maxLength="50"
                 android:textColor="#4CAF50"></EditText>
+
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -344,10 +363,11 @@
                     android:id="@+id/spAccion"
                     android:layout_width="218dp"
                     android:layout_height="35dp"
-                    android:spinnerMode="dialog"
                     android:prompt="@string/SeleccionarAccion"
+                    android:spinnerMode="dialog"
                     tools:ignore="TouchTargetSizeCheck"></Spinner>
             </TableRow>
+
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -364,10 +384,11 @@
                     android:id="@+id/spTipoAlimento"
                     android:layout_width="218dp"
                     android:layout_height="35dp"
-                    android:spinnerMode="dialog"
                     android:prompt="@string/SeleccionarTipo"
+                    android:spinnerMode="dialog"
                     tools:ignore="TouchTargetSizeCheck"></Spinner>
             </TableRow>
+
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -405,8 +426,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="25dp"
-                android:text="Guardar"
-                android:background="@drawable/button_rounded"></Button>
+                android:background="@drawable/button_rounded"
+                android:text="Guardar"></Button>
 
         </LinearLayout>
     </ScrollView>

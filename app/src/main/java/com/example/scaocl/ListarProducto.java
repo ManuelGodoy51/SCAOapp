@@ -166,7 +166,7 @@ ArrayList<producto> listaProductos;
             public void onResponse(String response) {
                 try {
                     ja = new JSONArray(response);
-                    Toast.makeText(getApplicationContext(), "El producto "+ja.getString(2)+"tiene "+ja.getString(4)+" Stock en almacen", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "El producto "+ja.getString(2)+" tiene "+ja.getString(4)+" de Stock en almacen", Toast.LENGTH_LONG).show();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
